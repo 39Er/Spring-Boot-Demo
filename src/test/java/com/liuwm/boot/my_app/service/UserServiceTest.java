@@ -1,5 +1,6 @@
 package com.liuwm.boot.my_app.service;
 
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import com.liuwm.boot.my_app.model.User;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 public class UserServiceTest {
+	private Logger logger = Logger.getLogger(UserServiceTest.class);
 	@Autowired
 	private UserDao userDao;
 	@Autowired
@@ -28,6 +30,7 @@ public class UserServiceTest {
 	
 	@Test
 	public void testFindOne(){
+		logger.debug("test mesg" );
 		System.out.println(userDao.findOne("8a818088518580da01518580e0b80000").toString());
 		//return userDao.findOne((long) 1);
 	}
