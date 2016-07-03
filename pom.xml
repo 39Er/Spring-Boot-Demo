@@ -51,14 +51,15 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<dependencies>
-					<dependency>
-						<groupId>org.springfssramework</groupId>
-						<artifactId>springloaded</artifactId>
-					</dependency>
-				</dependencies>
+			    <groupId>org.springframework.boot</groupId>
+			    <artifactId>spring-boot-maven-plugin</artifactId>
+			    <dependencies>
+			        <dependency>
+			            <groupId>org.springframework</groupId>
+			            <artifactId>springloaded</artifactId>
+			            <version>1.2.0.RELEASE</version>
+			        </dependency>
+			    </dependencies>
 			</plugin>
 		</plugins>
 	</build>
