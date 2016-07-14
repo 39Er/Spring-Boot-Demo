@@ -11,7 +11,7 @@ public class ExampleController {
 	@Autowired
 	private ExampleService exampleService;
 	
-	@RequestMapping("/")
+	@RequestMapping("/home")
 	public String home() {
 		return exampleService.home();
 	}

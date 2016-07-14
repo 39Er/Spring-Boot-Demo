@@ -25,6 +25,8 @@ public class User implements Serializable {
 	private String id;
 	private String name ;
 	private String email;
+	private String password ;
+	private String telphone;
 	
 	public String getId() {
 		return id;
@@ -44,6 +46,20 @@ public class User implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getTelphone() {
+		return telphone;
+	}
+	public void setTelphone(String telphone) {
+		this.telphone = telphone;
+	}
+	
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + "]";

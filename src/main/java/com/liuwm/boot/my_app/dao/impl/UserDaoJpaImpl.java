@@ -9,10 +9,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Component;
 
-import com.liuwm.boot.my_app.dao.UserDaoJpa;
+import com.liuwm.boot.my_app.dao.UserDao;
 import com.liuwm.boot.my_app.model.User;
 @Component
-public class UserDaoJpaImpl implements UserDaoJpa{
+public class UserDaoJpaImpl implements UserDao{
 	
 	@PersistenceContext
 	private EntityManager em;
@@ -23,11 +23,22 @@ public class UserDaoJpaImpl implements UserDaoJpa{
 	}
 
 	public User findOne(String id) {
-		String jql="select * from User where id = ?";
+		String jql="select u from User u where id = ?";
 		Query query = em.createQuery(jql).setParameter(1, id);
 		List<User> list = query.getResultList();
 		if(null !=list && list.size()==1){
 			return list.get(0);
+		}
+		return null;
+	}
+	
+	@Override
+	public User findOne(User u) {
+		String jql = "select * from User where name = ? and password = ?";
+		Query query = em.createQuery(jql).setParameter(1, u.getName()).setParameter(2, u.getPassword());
+		User user = (User) query.getSingleResult();
+		if(null != user ){
+			return user;
 		}
 		return null;
 	}

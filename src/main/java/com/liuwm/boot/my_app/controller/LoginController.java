@@ -1,31 +1,38 @@
 package com.liuwm.boot.my_app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.liuwm.boot.my_app.model.User;
 import com.liuwm.boot.my_app.service.UserService;
 
-@RestController
-@RequestMapping("/user")
-public class UserController {
+
+@Controller
+public class LoginController {
 	
 	@Autowired
 	private UserService userService;
 
+	
 	public UserService getUserService() {
 		return userService;
 	}
+
 
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
 	
-	@RequestMapping("/findUser/{id}")
-	public String findOne (@PathVariable("id") String id){
-		User u = userService.findOne(id);
-		return u.toString();
+	@RequestMapping("/")
+	public String home(){
+		System.out.println("-----------------------------");
+		return "login/loginpage";
+		
+	}
+	
+	@RequestMapping("/login")
+	public void login(){
+		
+		
 	}
 }
